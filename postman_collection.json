@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "CRUD Veiculos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:5000" }
+  ],
+  "item": [
+    {
+      "name": "Marcas",
+      "item": [
+        {
+          "name": "Listar marcas",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/marcas?busca=",
+              "host": ["{{base_url}}"],
+              "path": ["marcas"],
+              "query": [{ "key": "busca", "value": "" }]
+            }
+          }
+        },
+        {
+          "name": "Cadastrar marca",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Toyota\",\n  \"ativa\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/marcas",
+              "host": ["{{base_url}}"],
+              "path": ["marcas"]
+            }
+          }
+        },
+        {
+          "name": "Obter marca",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/marcas/1",
+              "host": ["{{base_url}}"],
+              "path": ["marcas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Editar marca",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Toyota\",\n  \"ativa\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/marcas/1",
+              "host": ["{{base_url}}"],
+              "path": ["marcas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Excluir marca",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/marcas/1",
+              "host": ["{{base_url}}"],
+              "path": ["marcas", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Veiculos",
+      "item": [
+        {
+          "name": "Listar veiculos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/veiculos?busca=",
+              "host": ["{{base_url}}"],
+              "path": ["veiculos"],
+              "query": [{ "key": "busca", "value": "" }]
+            }
+          }
+        },
+        {
+          "name": "Cadastrar veiculo",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"placa\": \"ABC1D23\",\n  \"modelo\": \"Corolla\",\n  \"ano\": 2022,\n  \"cor\": \"Prata\",\n  \"marca_id\": 1,\n  \"quilometragem\": 0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/veiculos",
+              "host": ["{{base_url}}"],
+              "path": ["veiculos"]
+            }
+          }
+        },
+        {
+          "name": "Obter veiculo",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/veiculos/1",
+              "host": ["{{base_url}}"],
+              "path": ["veiculos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Editar veiculo",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"modelo\": \"Corolla XEI\",\n  \"cor\": \"Preto\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/veiculos/1",
+              "host": ["{{base_url}}"],
+              "path": ["veiculos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Excluir veiculo",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/veiculos/1",
+              "host": ["{{base_url}}"],
+              "path": ["veiculos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Registrar quilometragem",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quilometragem\": 15000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/veiculos/1/quilometragem",
+              "host": ["{{base_url}}"],
+              "path": ["veiculos", "1", "quilometragem"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
